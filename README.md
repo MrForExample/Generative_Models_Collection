@@ -47,3 +47,4 @@ Generative Model related code and info
     * Virtual batch normalization: Calculation of batch norm statistics using a reference batch of real images
     * One side soft label for some loss function(e.g sigmoid cross entropy loss): real=0.9, fake=0
     * Use dropout of 50 percent during train and generation
+    * Two-timescale update rule(TTUR): using separate learning rates for the generator and the discriminator(usually lr_d > lr_g), making it possibleto use fewer discriminator steps per generator step
