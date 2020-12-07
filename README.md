@@ -1,2 +1,2 @@
 # GAN_Collection
-Generative Adversarial Network related code and info collection
+Generative Adversarial Network related code and info
