@@ -1,4 +1,7 @@
-# CycleGAN on horse2zebra dataset
+'''
+    CycleGAN on Horse2Zebra dataset
+    Horse2Zebra dataset: https://people.eecs.berkeley.edu/~taesung_park/CycleGAN/datasets/horse2zebra.zip
+'''
 import tensorflow as tf
 from tensorflow.keras import layers, models, initializers, constraints, optimizers
 from tensorflow_addons.layers import InstanceNormalization

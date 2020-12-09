@@ -1,4 +1,7 @@
-# Progressive Growing GAN on celebrity faces dataset
+'''
+    Progressive Growing GAN on celebrity faces dataset
+    CelebA dataset: https://www.kaggle.com/jessicali9530/celeba-dataset
+'''
 import tensorflow as tf
 from tensorflow.keras import layers, models, initializers, constraints, optimizers
 import tensorflow.keras.backend as K

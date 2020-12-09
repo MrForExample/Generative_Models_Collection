@@ -1,4 +1,7 @@
-# Multi-Scale Gradients GAN on celebrity faces dataset
+'''
+    Multi-Scale Gradients GAN on celebrity faces dataset
+    CelebA dataset: https://www.kaggle.com/jessicali9530/celeba-dataset
+'''
 import tensorflow as tf
 from tensorflow_addons.layers import SpectralNormalization
 from tensorflow import keras

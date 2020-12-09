@@ -1,4 +1,7 @@
-# Self-Attention GAN on cifar10 dataset
+'''
+    Self-Attention GAN on cifar10 dataset
+    CIFAR dataset: https://www.cs.toronto.edu/~kriz/cifar.html
+'''
 import os
 import time
 import datetime

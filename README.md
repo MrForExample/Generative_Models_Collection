@@ -11,16 +11,20 @@ Generative Model related code and info
 
 <br>
 
-## Stabilizing training
+## Training & Stabilizing
+* Using small dataset like [CIFAR](https://www.cs.toronto.edu/~kriz/cifar.html), [CelebA](https://www.kaggle.com/jessicali9530/celeba-dataset), [Horses2Zebra](https://people.eecs.berkeley.edu/~taesung_park/CycleGAN/datasets/horse2zebra.zip) to test algorithm before scale whole thing up: save time, whatever you can!
+
 * Normalize the inputs between -1 and 1 for both generator and discriminator
 
 * Sample from gaussian distribution rather than uniform distribution
 
-* All normalizations method are potential helpful, **SpectralNorm**, **BatchNorm**(when have label using **ConditionalBatchNorm** or don't have label using **SelfModulationBatchNorm**), consider other methods like **InstanceNorm** or **PixelNorm** when BatchNorm is not an option
+* All normalizations methods are potentially helpful, **SpectralNorm**, **BatchNorm**(when have label using **ConditionalBatchNorm** or don't have label using **SelfModulationBatchNorm**), consider other methods like **InstanceNorm** or **PixelNorm** when BatchNorm is not an option
 
 * Avoid Sparse Gradients(e.g **ReLU**, **MaxPool**), using **LeakyReLU** in both generator(could also use **ReLU**) and discriminator, For Downsampling, use **Average Pooling**, **Conv2d + stride**, For Upsampling, use **NearestUpsampling**, **PixelShuffle**, **ConvTranspose2d + stride**
 
 * Model architecture with usual form of **ResnetBlock** is usually better than without
+
+* Overfitting of generator usually happen after long epochs of training, generator starting generate good samples make discriminator hard to discriminate, so discriminator starting produce misleading gradients to generator, to avoid it use data augmentation technique call the [Adaptative Discriminator Augmentation(ADA)](https://github.com/NVlabs/stylegan2-ada)
 
 * Use stability tricks from RL e.g **Experience Replay**
 
@@ -46,5 +50,5 @@ Generative Model related code and info
     * Minibatch discrimination: Develop features across multiple samples in a minibatch
     * Virtual batch normalization: Calculation of batch norm statistics using a reference batch of real images
     * One side soft label for some loss function(e.g sigmoid cross entropy loss): real=0.9, fake=0
-    * Use dropout of 50 percent during train and generation
     * Two-timescale update rule(TTUR): using separate learning rates for the generator and the discriminator(usually lr_d > lr_g), making it possibleto use fewer discriminator steps per generator step
+    * All regularization and constraint methods are potentially helpful, e.g use dropout of 50 percent during train and generation
