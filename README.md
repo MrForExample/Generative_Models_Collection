@@ -24,7 +24,7 @@ Generative Model related code and info
 
 * Model architecture with usual form of **ResnetBlock** is usually better than without
 
-* Overfitting of generator usually happen after long epochs of training, generator starting generate good samples make discriminator hard to discriminate, so discriminator starting produce misleading gradients to generator, to avoid it use data augmentation technique call the [Adaptative Discriminator Augmentation(ADA)](https://github.com/NVlabs/stylegan2-ada)
+* Overfitting of generator usually happen after long epochs of training, generator starting generate good samples make discriminator hard to discriminate, so discriminator starting produce misleading gradients to generator, to avoid it use data augmentation technique call the [**Adaptative Discriminator Augmentation(ADA)**](https://github.com/NVlabs/stylegan2-ada)
 
 * Use stability tricks from RL e.g **Experience Replay**
 
